@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+//region ShopifyIncomingRateRequest
+
 type GetRatesRequest struct {
 	Rate rate `json:"rate"`
 }
@@ -81,3 +83,31 @@ func (req *GetRatesRequest) Validate() []*fiber.Error {
 	}
 	return errors
 }
+
+//endregion ShopifyIncomingRateRequest
+
+//region SkypostalApiGetRatesResponse
+
+type spGetRatesResponse struct {
+	data           []spGetRatesResponseBody
+	error          SkypostalError
+	additionalInfo SkypostalAdditionalInfo
+}
+
+type spGetRatesResponseBody struct {
+}
+
+type spFirstMileRate struct {
+	weight                  float64
+	weight_unit             string
+	pricing_weight          float64
+	pricing_cubic_ft        float64
+	value                   float64
+	postage_amount          float64
+	fees_amount             float64
+	discounted_amount       float64
+	total_amount            float64
+	estimated_delivery_days int
+}
+
+//endregion SkypostalApiGetRatesResponse
