@@ -7,13 +7,13 @@ type SkypostalUserInfo struct {
 }
 
 type SkypostalAdditionalInfo struct {
-	Server   serverInfo
-	Internal serverInternalInfo
+	Server   serverInfo         `json:"server"`
+	Internal serverInternalInfo `json:"internal"`
 }
 
 type serverInfo struct {
-	ServerId   string
-	ServerTime int
+	ServerId   string `json:"server_id"`
+	ServerTime int    `json:"server_time"`
 }
 
 type serverInternalInfo struct {
@@ -23,8 +23,8 @@ type serverInternalInfo struct {
 }
 
 type SkypostalError struct {
-	ErrorCode        string
-	ErrorDescription string
-	ErrorLocation    string
-	SystemError      bool
+	ErrorCode        string `json:"error_code"`
+	ErrorDescription string `json:"error_description"`
+	ErrorLocation    string `json:"error_location"`
+	SystemError      bool   `json:"system_error"`
 }

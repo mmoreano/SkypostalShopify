@@ -6,19 +6,19 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-var getRatesRequest models.GetRatesRequest
+var shopifyGetRatesRequest models.ShopifyGetRatesRequest
 
 func GetRates(ctx *fiber.Ctx) error {
 
-	json.Unmarshal(ctx.Body(), &getRatesRequest)
+	json.Unmarshal(ctx.Body(), &shopifyGetRatesRequest)
 
-	err := getRatesRequest.Validate()
+	err := shopifyGetRatesRequest.Validate()
 
 	if err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(err)
 	}
 
-	return ctx.JSON(getRatesRequest)
+	return ctx.JSON(shopifyGetRatesRequest)
 
 	//urlExtension := "/wcf-services/service-user.svc/user/user-login"
 	//url := urlExtension + setup.TestEnv
